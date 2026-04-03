@@ -135,16 +135,11 @@
 }
 
 @keyframes slide-down {
-  0% {
+  from {
     transform: translateY(-100%);
-    opacity: 0;
   }
-  40% {
-    opacity: 0.6;
-  }
-  100% {
+  to {
     transform: translateY(0);
-    opacity: 1;
   }
 }
 

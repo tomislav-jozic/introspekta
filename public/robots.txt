@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://introspekta.com.hr/sitemap.xml

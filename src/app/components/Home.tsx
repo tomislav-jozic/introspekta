@@ -1,4 +1,6 @@
 import { Link } from "react-router";
+import { CtaButton } from "./CtaButton";
+import { Seo } from "./Seo";
 
 const services = [
   {
@@ -48,6 +50,11 @@ const blogPreviews = [
 export function Home() {
   return (
     <div className="max-w-5xl mx-auto px-6">
+      <Seo
+        title="Psihoterapija Zagreb"
+        description="Introspekta — siguran prostor za istraživanje sebe. Kognitivno-bihevioralna terapija, ekspresivna art terapija, mindfulness pristupi u Zagrebu. Individualno i online savjetovanje."
+        path="/"
+      />
       {/* Hero */}
       <section className="py-28 md:py-36">
         <div className="max-w-2xl">
@@ -60,18 +67,12 @@ export function Home() {
             prepoznavanje vlastitih snaga i izgradnju života u skladu s osobnim vrijednostima.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link
-              to="/kontakt"
-              className="inline-block px-8 py-4 bg-brand text-white text-sm tracking-wide hover:bg-brand-dark transition-colors rounded-lg"
-            >
+            <CtaButton to="/kontakt" className="px-8 py-4">
               Rezervirajte termin
-            </Link>
-            <Link
-              to="/pristup"
-              className="inline-block px-8 py-4 border border-stone-300 text-stone-700 text-sm tracking-wide hover:border-stone-500 transition-colors rounded-lg"
-            >
+            </CtaButton>
+            <CtaButton to="/pristup" variant="secondary" className="px-8 py-4">
               Saznajte više
-            </Link>
+            </CtaButton>
           </div>
         </div>
       </section>
@@ -170,7 +171,7 @@ export function Home() {
 
       {/* CTA Block */}
       <section className="py-24 border-t border-stone-100">
-        <div className="bg-brand p-12 md:p-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+        <div className="bg-brand p-12 md:p-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 rounded-md shadow-2xl">
           <div>
             <p className="text-xs tracking-[0.2em] text-green-300 uppercase mb-3">Napravite prvi korak</p>
             <h2 className="text-3xl tracking-tight text-white">Rezervirajte termin</h2>
@@ -179,12 +180,9 @@ export function Home() {
               potencijalnoj suradnji.
             </p>
           </div>
-          <Link
-            to="/kontakt"
-            className="shrink-0 px-8 py-4 bg-white text-brand text-sm tracking-wide hover:bg-stone-100 transition-colors rounded-lg"
-          >
+          <CtaButton to="/kontakt" variant="inverse" className="shrink-0 px-8 py-4">
             Kontaktirajte me
-          </Link>
+          </CtaButton>
         </div>
       </section>
     </div>

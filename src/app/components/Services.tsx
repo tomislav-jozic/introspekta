@@ -1,4 +1,6 @@
 import { Link } from "react-router";
+import { CtaButton } from "./CtaButton";
+import { Seo } from "./Seo";
 
 const services = [
   {
@@ -42,6 +44,11 @@ const services = [
 export function Services() {
   return (
     <div className="max-w-5xl mx-auto px-6 py-24">
+      <Seo
+        title="Usluge"
+        description="Individualno savjetovanje, online terapija i grupne radionice u Zagrebu. Podrška za anksioznost, depresiju, traumu, samopoštovanje i osobni rast."
+        path="/usluge"
+      />
       {/* Header */}
       <div className="max-w-2xl mb-20">
         <p className="text-xs tracking-[0.2em] text-brand uppercase mb-4">Usluge</p>
@@ -113,18 +120,12 @@ export function Services() {
             </p>
           </div>
           <div className="flex gap-4">
-            <Link
-              to="/kontakt"
-              className="inline-block px-6 py-3 bg-brand text-white text-sm tracking-wide hover:bg-brand-dark transition-colors rounded-lg"
-            >
+            <CtaButton to="/kontakt">
               Rezervirajte termin
-            </Link>
-            <Link
-              to="/pristup"
-              className="inline-block px-6 py-3 border border-stone-300 text-stone-700 text-sm tracking-wide hover:border-stone-500 transition-colors rounded-lg"
-            >
+            </CtaButton>
+            <CtaButton to="/pristup" variant="secondary">
               O pristupu
-            </Link>
+            </CtaButton>
           </div>
         </div>
       </section>

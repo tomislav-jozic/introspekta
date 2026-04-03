@@ -1,3 +1,5 @@
+import { Seo } from "./Seo";
+
 const certifications = [
   {
     year: "u tijeku",
@@ -47,6 +49,11 @@ const certifications = [
 export function About() {
   return (
     <div className="max-w-5xl mx-auto px-6 py-24">
+      <Seo
+        title="O meni"
+        description="Upoznajte psihoterapeutkinju iza Introspekte — obrazovanje, radno iskustvo i certifikati iz kognitivno-bihevioralne terapije, art terapije, MBCT, ACT i CFT pristupa."
+        path="/o-meni"
+      />
       {/* Header */}
       <div className="max-w-2xl mb-20">
         <p className="text-xs tracking-[0.2em] text-brand uppercase mb-4">O meni</p>

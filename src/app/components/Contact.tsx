@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Seo } from "./Seo";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
@@ -31,6 +32,11 @@ export function Contact() {
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-24">
+      <Seo
+        title="Kontakt"
+        description="Rezervirajte termin za psihoterapiju u Zagrebu ili online. Kontaktirajte Introspektu putem obrasca ili e-maila info@introspekta.hr."
+        path="/kontakt"
+      />
       {/* Header */}
       <div className="max-w-2xl mb-20">
         <p className="text-xs tracking-[0.2em] text-brand uppercase mb-4">Kontakt</p>

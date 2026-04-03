@@ -1,4 +1,5 @@
-import { Link } from "react-router";
+import { CtaButton } from "./CtaButton";
+import { Seo } from "./Seo";
 
 const modalities = [
   {
@@ -36,6 +37,11 @@ const modalities = [
 export function Approach() {
   return (
     <div className="max-w-5xl mx-auto px-6 py-24">
+      <Seo
+        title="Terapijski pristup"
+        description="Integrirani terapijski pristupi prilagođeni vašim potrebama — KBT, ekspresivna art terapija, MBCT, ACT i CFT. Suradnja, osnaživanje i prilagodljivost."
+        path="/pristup"
+      />
       {/* Header */}
       <div className="max-w-2xl mb-20">
         <p className="text-xs tracking-[0.2em] text-brand uppercase mb-4">Pristup</p>
@@ -139,12 +145,9 @@ export function Approach() {
               Početak terapije može izgledati zastrašujuće. Slobodno me kontaktirajte s
               pitanjima — bez obveza.
             </p>
-            <Link
-              to="/kontakt"
-              className="inline-block px-6 py-3 bg-brand text-white text-sm tracking-wide hover:bg-brand-dark transition-colors rounded-lg"
-            >
+            <CtaButton to="/kontakt">
               Kontaktirajte me
-            </Link>
+            </CtaButton>
           </div>
         </div>
       </section>

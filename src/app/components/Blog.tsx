@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { Seo } from "./Seo";
 
 const articles = [
   {
@@ -89,6 +90,11 @@ function ArticleCard({ article }: { article: typeof articles[0] }) {
 export function Blog() {
   return (
     <div className="max-w-5xl mx-auto px-6 py-24">
+      <Seo
+        title="Blog"
+        description="Tekstovi o mentalnom zdravlju, emocionalnim obrascima i psihološkoj otpornosti. Maladaptivno sanjarenje, kronični sram, kreativnost u psihoterapiji."
+        path="/blog"
+      />
       <div className="max-w-2xl mb-20">
         <p className="text-xs tracking-[0.2em] text-brand uppercase mb-4">Blog</p>
         <h1 className="text-5xl tracking-tight text-stone-900 mb-6">Tekstovi i razmišljanja.</h1>
