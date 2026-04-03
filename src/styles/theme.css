@@ -2,7 +2,7 @@
 
 :root {
   --font-size: 16px;
-  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Graphik', ui-sans-serif, system-ui, sans-serif;
   --background: #ffffff;
   --foreground: oklch(0.145 0 0);
   --card: #ffffff;
@@ -120,13 +120,25 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --color-brand: #2C4A3E;
   --color-brand-dark: #233d33;
-  --animate-slide-down: slide-down 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-slide-down: slide-down 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-page-enter: page-enter 1.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-@keyframes reveal {
+@keyframes heading-reveal {
+  from {
+    clip-path: inset(100% 0 0 0);
+    opacity: 0;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes page-enter {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -160,17 +172,6 @@
 
   html {
     font-size: var(--font-size);
-  }
-
-  h1,
-  h2 {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-
-  h1.revealed,
-  h2.revealed {
-    animation: reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   h1 {
@@ -215,3 +216,14 @@
     line-height: 1.5;
   }
 }
+
+main h1,
+main h2 {
+  opacity: 0;
+}
+
+main h1.revealed,
+main h2.revealed {
+  animation: heading-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+

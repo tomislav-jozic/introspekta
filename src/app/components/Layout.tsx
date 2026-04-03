@@ -32,7 +32,9 @@ export function Layout() {
       <Header />
 
       <main className="pt-24">
-        <Outlet />
+        <div key={location.pathname} className="animate-page-enter">
+          <Outlet />
+        </div>
       </main>
 
       <Footer />
