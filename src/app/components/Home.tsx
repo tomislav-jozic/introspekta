@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { CtaButton } from "./CtaButton";
 import { Seo } from "./Seo";
+import { articles } from "../../data/articles";
 
 const services = [
   {
@@ -23,29 +24,7 @@ const services = [
   },
 ];
 
-const blogPreviews = [
-  {
-    title: "Maladaptivno sanjarenje: zarobljeni u svijetu mašte",
-    excerpt:
-      "Sanjarenje je spontano iskustvo koje može poticati kreativnost i olakšati suočavanje s izazovima — no kada postane prekomjerno, može narušiti svakodnevno funkcioniranje.",
-    href: "/blog",
-    slug: "maladaptivno-sanjarenje",
-  },
-  {
-    title: "Kronični sram",
-    excerpt:
-      "Sram je osjećaj koji nastaje kada pomislimo da smo učinili nešto što će druge navesti na negativnu procjenu nas. Kronični sram je nešto dublje — trajan osjećaj vlastite nedovoljnosti.",
-    href: "/blog",
-    slug: "kronicni-sram",
-  },
-  {
-    title: "Uloga kreativnosti u psihoterapiji",
-    excerpt:
-      "Kreativnost je temeljna ljudska sposobnost koja omogućuje stvaranje novih perspektiva, fleksibilnijih uvjerenja i inovativnih načina suočavanja s izazovima.",
-    href: "/blog",
-    slug: "kreativnost-u-psihoterapiji",
-  },
-];
+const blogPreviews = articles.slice(0, 3);
 
 export function Home() {
   return (
@@ -155,7 +134,7 @@ export function Home() {
           {blogPreviews.map((post) => (
             <Link
               key={post.slug}
-              to="/blog"
+              to={`/blog/${post.slug}`}
               className="group flex flex-col md:flex-row md:items-start gap-4 py-8 hover:bg-stone-50 -mx-4 px-4 transition-colors"
             >
               <div className="md:w-64 shrink-0">

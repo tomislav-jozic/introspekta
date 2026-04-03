@@ -5,6 +5,7 @@ import { About } from "./components/About";
 import { Approach } from "./components/Approach";
 import { Services } from "./components/Services";
 import { Blog } from "./components/Blog";
+import { BlogPost } from "./components/BlogPost";
 import { Contact } from "./components/Contact";
 
 export const router = createBrowserRouter([
@@ -17,6 +18,7 @@ export const router = createBrowserRouter([
       { path: "pristup", Component: Approach },
       { path: "usluge", Component: Services },
       { path: "blog", Component: Blog },
+      { path: "blog/:slug", Component: BlogPost },
       { path: "kontakt", Component: Contact },
     ],
   },
