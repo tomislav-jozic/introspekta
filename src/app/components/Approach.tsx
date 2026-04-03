@@ -38,7 +38,7 @@ export function Approach() {
     <div className="max-w-5xl mx-auto px-6 py-24">
       {/* Header */}
       <div className="max-w-2xl mb-20">
-        <p className="text-xs tracking-[0.2em] text-[#2C4A3E] uppercase mb-4">Pristup</p>
+        <p className="text-xs tracking-[0.2em] text-brand uppercase mb-4">Pristup</p>
         <h1 className="text-5xl tracking-tight text-stone-900 mb-6">
           Terapija prilagođena vama.
         </h1>
@@ -52,7 +52,7 @@ export function Approach() {
       <section className="mb-24">
         <div className="grid md:grid-cols-3 gap-px bg-stone-200">
           <div className="bg-white p-8">
-            <div className="w-8 h-px bg-[#2C4A3E] mb-6" />
+            <div className="w-8 h-px bg-brand mb-6" />
             <h3 className="text-stone-900 mb-3 tracking-tight">Suradnja</h3>
             <p className="text-sm text-stone-500 leading-relaxed">
               Vi ste stručnjak za vlastiti život. Moj posao je stvoriti siguran prostor i
@@ -61,7 +61,7 @@ export function Approach() {
             </p>
           </div>
           <div className="bg-white p-8">
-            <div className="w-8 h-px bg-[#2C4A3E] mb-6" />
+            <div className="w-8 h-px bg-brand mb-6" />
             <h3 className="text-stone-900 mb-3 tracking-tight">Osnaživanje</h3>
             <p className="text-sm text-stone-500 leading-relaxed">
               Cilj nije samo ublažavanje teškoća u ovom trenutku, već razvijanje dugoročnih
@@ -70,7 +70,7 @@ export function Approach() {
             </p>
           </div>
           <div className="bg-white p-8">
-            <div className="w-8 h-px bg-[#2C4A3E] mb-6" />
+            <div className="w-8 h-px bg-brand mb-6" />
             <h3 className="text-stone-900 mb-3 tracking-tight">Prilagodljivost</h3>
             <p className="text-sm text-stone-500 leading-relaxed">
               Kombiniram različite terapijske modalitete — razgovornu terapiju, kreativne
@@ -88,7 +88,7 @@ export function Approach() {
           {modalities.map((m) => (
             <div key={m.code} className="py-8 grid md:grid-cols-4 gap-6 items-start">
               <div>
-                <span className="inline-block text-xs tracking-widest text-[#2C4A3E] border border-[#2C4A3E]/30 px-2.5 py-1">
+                <span className="inline-block text-xs tracking-widest text-brand border border-brand/30 px-2.5 py-1">
                   {m.code}
                 </span>
               </div>
@@ -132,7 +132,7 @@ export function Approach() {
             </div>
           </div>
           <div className="bg-stone-50 p-8">
-            <p className="text-xs tracking-[0.2em] text-[#2C4A3E] uppercase mb-6">
+            <p className="text-xs tracking-[0.2em] text-brand uppercase mb-6">
               Napravite prvi korak
             </p>
             <p className="text-stone-700 leading-relaxed mb-8">
@@ -141,7 +141,7 @@ export function Approach() {
             </p>
             <Link
               to="/kontakt"
-              className="inline-block px-6 py-3 bg-[#2C4A3E] text-white text-sm tracking-wide hover:bg-[#233d33] transition-colors"
+              className="inline-block px-6 py-3 bg-brand text-white text-sm tracking-wide hover:bg-brand-dark transition-colors rounded-lg"
             >
               Kontaktirajte me
             </Link>

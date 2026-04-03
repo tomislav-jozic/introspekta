@@ -49,7 +49,7 @@ export function About() {
     <div className="max-w-5xl mx-auto px-6 py-24">
       {/* Header */}
       <div className="max-w-2xl mb-20">
-        <p className="text-xs tracking-[0.2em] text-[#2C4A3E] uppercase mb-4">O meni</p>
+        <p className="text-xs tracking-[0.2em] text-brand uppercase mb-4">O meni</p>
         <h1 className="text-5xl tracking-tight text-stone-900 mb-6">Moj put u psihoterapiju.</h1>
         <p className="text-lg text-stone-500 leading-relaxed">
           Cijeli moj profesionalni razvoj usmjeren je na rad u području mentalnog zdravlja,

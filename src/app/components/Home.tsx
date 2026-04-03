@@ -51,7 +51,7 @@ export function Home() {
       {/* Hero */}
       <section className="py-28 md:py-36">
         <div className="max-w-2xl">
-          <p className="text-xs tracking-[0.2em] text-[#2C4A3E] mb-6 uppercase">Psihoterapija · Zagreb</p>
+          <p className="text-xs tracking-[0.2em] text-brand mb-6 uppercase">Psihoterapija · Zagreb</p>
           <h1 className="text-5xl md:text-6xl tracking-tight text-stone-900 mb-8 leading-tight">
             Siguran prostor za<br />istraživanje sebe.
           </h1>
@@ -62,13 +62,13 @@ export function Home() {
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
               to="/kontakt"
-              className="inline-block px-8 py-4 bg-[#2C4A3E] text-white text-sm tracking-wide hover:bg-[#233d33] transition-colors"
+              className="inline-block px-8 py-4 bg-brand text-white text-sm tracking-wide hover:bg-brand-dark transition-colors rounded-lg"
             >
               Rezervirajte termin
             </Link>
             <Link
               to="/pristup"
-              className="inline-block px-8 py-4 border border-stone-300 text-stone-700 text-sm tracking-wide hover:border-stone-500 transition-colors"
+              className="inline-block px-8 py-4 border border-stone-300 text-stone-700 text-sm tracking-wide hover:border-stone-500 transition-colors rounded-lg"
             >
               Saznajte više
             </Link>
@@ -88,19 +88,19 @@ export function Home() {
           </div>
           <div className="space-y-4">
             <div className="flex items-start gap-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2C4A3E] mt-2 shrink-0" />
+              <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2 shrink-0" />
               <span className="text-sm text-stone-500">Kognitivno-bihevioralna terapija (KBT)</span>
             </div>
             <div className="flex items-start gap-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2C4A3E] mt-2 shrink-0" />
+              <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2 shrink-0" />
               <span className="text-sm text-stone-500">Ekspresivna art terapija</span>
             </div>
             <div className="flex items-start gap-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2C4A3E] mt-2 shrink-0" />
+              <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2 shrink-0" />
               <span className="text-sm text-stone-500">Mindfulness (MBCT, ACT)</span>
             </div>
             <div className="flex items-start gap-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2C4A3E] mt-2 shrink-0" />
+              <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2 shrink-0" />
               <span className="text-sm text-stone-500">Terapija usmjerena na suosjećanje (CFT)</span>
             </div>
           </div>
@@ -122,7 +122,7 @@ export function Home() {
               to={service.href}
               className="bg-white p-8 group hover:bg-stone-50 transition-colors"
             >
-              <h3 className="text-lg tracking-tight text-stone-900 mb-3 group-hover:text-[#2C4A3E] transition-colors">
+              <h3 className="text-lg tracking-tight text-stone-900 mb-3 group-hover:text-brand transition-colors">
                 {service.title}
               </h3>
               <p className="text-sm text-stone-500 leading-relaxed">{service.description}</p>
@@ -158,7 +158,7 @@ export function Home() {
               className="group flex flex-col md:flex-row md:items-start gap-4 py-8 hover:bg-stone-50 -mx-4 px-4 transition-colors"
             >
               <div className="md:w-64 shrink-0">
-                <span className="text-sm text-stone-900 group-hover:text-[#2C4A3E] transition-colors leading-snug">
+                <span className="text-sm text-stone-900 group-hover:text-brand transition-colors leading-snug">
                   {post.title}
                 </span>
               </div>
@@ -170,7 +170,7 @@ export function Home() {
 
       {/* CTA Block */}
       <section className="py-24 border-t border-stone-100">
-        <div className="bg-[#2C4A3E] p-12 md:p-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+        <div className="bg-brand p-12 md:p-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           <div>
             <p className="text-xs tracking-[0.2em] text-green-300 uppercase mb-3">Napravite prvi korak</p>
             <h2 className="text-3xl tracking-tight text-white">Rezervirajte termin</h2>
@@ -181,7 +181,7 @@ export function Home() {
           </div>
           <Link
             to="/kontakt"
-            className="shrink-0 px-8 py-4 bg-white text-[#2C4A3E] text-sm tracking-wide hover:bg-stone-100 transition-colors"
+            className="shrink-0 px-8 py-4 bg-white text-brand text-sm tracking-wide hover:bg-stone-100 transition-colors rounded-lg"
           >
             Kontaktirajte me
           </Link>

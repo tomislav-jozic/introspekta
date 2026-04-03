@@ -118,6 +118,34 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-brand: #2C4A3E;
+  --color-brand-dark: #233d33;
+  --animate-slide-down: slide-down 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @layer base {
@@ -137,6 +165,17 @@
 
   html {
     font-size: var(--font-size);
+  }
+
+  h1,
+  h2 {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  h1.revealed,
+  h2.revealed {
+    animation: reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   h1 {

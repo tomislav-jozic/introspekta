@@ -56,7 +56,7 @@ function ArticleCard({ article }: { article: typeof articles[0] }) {
         className="w-full text-left py-10 flex justify-between items-start gap-8 group"
       >
         <div>
-          <h2 className="text-xl tracking-tight text-stone-900 group-hover:text-[#2C4A3E] transition-colors mb-2">
+          <h2 className="text-xl tracking-tight text-stone-900 group-hover:text-brand transition-colors mb-2">
             {article.title}
           </h2>
           <p className="text-sm text-stone-500 leading-relaxed max-w-2xl">{article.excerpt}</p>
@@ -69,17 +69,19 @@ function ArticleCard({ article }: { article: typeof articles[0] }) {
         />
       </button>
 
-      {expanded && (
-        <div className="pb-12 pr-8 md:pr-24">
-          <div className="space-y-5">
-            {article.content.map((para, i) => (
-              <p key={i} className="text-stone-600 leading-relaxed text-sm">
-                {para}
-              </p>
-            ))}
+      <div className={`grid transition-[grid-template-rows] duration-300 ease-out ${expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+        <div className="overflow-hidden">
+          <div className="pb-12 pr-8 md:pr-24">
+            <div className="space-y-5">
+              {article.content.map((para, i) => (
+                <p key={i} className="text-stone-600 leading-relaxed text-sm">
+                  {para}
+                </p>
+              ))}
+            </div>
           </div>
         </div>
-      )}
+      </div>
     </article>
   );
 }
@@ -88,7 +90,7 @@ export function Blog() {
   return (
     <div className="max-w-5xl mx-auto px-6 py-24">
       <div className="max-w-2xl mb-20">
-        <p className="text-xs tracking-[0.2em] text-[#2C4A3E] uppercase mb-4">Blog</p>
+        <p className="text-xs tracking-[0.2em] text-brand uppercase mb-4">Blog</p>
         <h1 className="text-5xl tracking-tight text-stone-900 mb-6">Tekstovi i razmišljanja.</h1>
         <p className="text-lg text-stone-500 leading-relaxed">
           Kratki tekstovi o temama vezanim uz mentalno zdravlje, emocionalne obrasce i

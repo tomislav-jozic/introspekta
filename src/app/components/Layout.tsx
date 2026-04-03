@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, Outlet, useLocation } from "react-router";
 import { Menu, X } from "lucide-react";
 
@@ -15,6 +15,27 @@ export function Layout() {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const headings = document.querySelectorAll("main h1, main h2");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    headings.forEach((h) => observer.observe(h));
+    return () => observer.disconnect();
+  }, [location.pathname]);
+
   const isActive = (path: string) => {
     if (path === "/") return location.pathname === "/";
     return location.pathname.startsWith(path);
@@ -22,10 +43,10 @@ export function Layout() {
 
   return (
     <div className="min-h-screen bg-white">
-      <nav className="border-b border-stone-200">
-        <div className="max-w-5xl mx-auto px-6 py-6">
+      <nav className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 animate-slide-down">
+        <div className="max-w-5xl mx-auto backdrop-blur-2xl bg-white/70 border border-white/50 shadow-lg px-6 py-4 rounded-xl">
           <div className="flex justify-between items-center">
-            <Link to="/" className="text-xl tracking-tight text-[#2C4A3E]" style={{ letterSpacing: "0.08em" }}>
+            <Link to="/" className="text-xl tracking-tight text-brand" style={{ letterSpacing: "0.08em" }}>
               introspekta
             </Link>
 
@@ -37,7 +58,7 @@ export function Layout() {
                   to={link.to}
                   className={`text-sm tracking-wide transition-colors ${
                     isActive(link.to)
-                      ? "text-[#2C4A3E]"
+                      ? "text-brand"
                       : "text-stone-400 hover:text-stone-900"
                   }`}
                 >
@@ -46,7 +67,7 @@ export function Layout() {
               ))}
               <Link
                 to="/kontakt"
-                className="ml-4 text-sm px-5 py-2.5 bg-[#2C4A3E] text-white hover:bg-[#233d33] transition-colors tracking-wide"
+                className="ml-4 text-sm px-5 py-2.5 bg-brand text-white hover:bg-brand-dark transition-colors tracking-wide rounded-lg"
               >
                 Rezervirajte termin
               </Link>
@@ -63,33 +84,35 @@ export function Layout() {
           </div>
 
           {/* Mobile menu */}
-          {menuOpen && (
-            <div className="md:hidden mt-6 pb-2 flex flex-col gap-5 border-t border-stone-100 pt-6">
-              {navLinks.map((link) => (
+          <div className={`md:hidden grid transition-[grid-template-rows] duration-300 ease-out ${menuOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+            <div className="overflow-hidden">
+              <div className="mt-4 pb-2 flex flex-col gap-4 border-t border-stone-200/40 pt-4">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    onClick={() => setMenuOpen(false)}
+                    className={`text-sm tracking-wide ${
+                      isActive(link.to) ? "text-brand" : "text-stone-500"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
                 <Link
-                  key={link.to}
-                  to={link.to}
+                  to="/kontakt"
                   onClick={() => setMenuOpen(false)}
-                  className={`text-sm tracking-wide ${
-                    isActive(link.to) ? "text-[#2C4A3E]" : "text-stone-500"
-                  }`}
+                  className="text-sm px-5 py-3 bg-brand text-white text-center tracking-wide rounded-lg"
                 >
-                  {link.label}
+                  Rezervirajte termin
                 </Link>
-              ))}
-              <Link
-                to="/kontakt"
-                onClick={() => setMenuOpen(false)}
-                className="text-sm px-5 py-3 bg-[#2C4A3E] text-white text-center tracking-wide"
-              >
-                Rezervirajte termin
-              </Link>
+              </div>
             </div>
-          )}
+          </div>
         </div>
       </nav>
 
-      <main>
+      <main className="pt-24">
         <Outlet />
       </main>
 
@@ -97,7 +120,7 @@ export function Layout() {
         <div className="max-w-5xl mx-auto px-6 py-10">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
             <div>
-              <p className="text-[#2C4A3E] tracking-widest text-sm mb-1">introspekta</p>
+              <p className="text-brand tracking-widest text-sm mb-1">introspekta</p>
               <p className="text-xs text-stone-400">Psihoterapija · Zagreb</p>
             </div>
             <div className="flex flex-col md:flex-row gap-6 text-xs text-stone-400">

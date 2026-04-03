@@ -16,7 +16,6 @@ export function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
     setSubmitted(true);
     setTimeout(() => {
       setFormData({ name: "", email: "", phone: "", topic: "", message: "" });
@@ -34,7 +33,7 @@ export function Contact() {
     <div className="max-w-5xl mx-auto px-6 py-24">
       {/* Header */}
       <div className="max-w-2xl mb-20">
-        <p className="text-xs tracking-[0.2em] text-[#2C4A3E] uppercase mb-4">Kontakt</p>
+        <p className="text-xs tracking-[0.2em] text-brand uppercase mb-4">Kontakt</p>
         <h1 className="text-5xl tracking-tight text-stone-900 mb-6">Stupite u kontakt.</h1>
         <p className="text-lg text-stone-500 leading-relaxed">
           Za upite i rezervaciju termina, ispunite obrazac u nastavku ili me kontaktirajte
@@ -46,8 +45,8 @@ export function Contact() {
         {/* Form */}
         <div>
           {submitted ? (
-            <div className="border border-[#2C4A3E]/20 bg-[#2C4A3E]/5 p-10">
-              <p className="text-[#2C4A3E] mb-2">Hvala vam na poruci.</p>
+            <div className="border border-brand/20 bg-brand/5 p-10">
+              <p className="text-brand mb-2">Hvala vam na poruci.</p>
               <p className="text-sm text-stone-500">
                 Javit ću vam se u roku od 24–48 sati.
               </p>
@@ -64,7 +63,7 @@ export function Contact() {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full border-stone-200 focus:border-[#2C4A3E] rounded-none bg-transparent"
+                  className="w-full border-stone-200 focus:border-brand rounded-none bg-transparent"
                 />
               </div>
 
@@ -79,7 +78,7 @@ export function Contact() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full border-stone-200 focus:border-[#2C4A3E] rounded-none bg-transparent"
+                  className="w-full border-stone-200 focus:border-brand rounded-none bg-transparent"
                 />
               </div>
 
@@ -93,7 +92,7 @@ export function Contact() {
                   type="tel"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full border-stone-200 focus:border-[#2C4A3E] rounded-none bg-transparent"
+                  className="w-full border-stone-200 focus:border-brand rounded-none bg-transparent"
                 />
               </div>
 
@@ -106,7 +105,7 @@ export function Contact() {
                   name="topic"
                   value={formData.topic}
                   onChange={handleChange}
-                  className="w-full border border-stone-200 px-3 py-2 text-sm text-stone-700 bg-transparent focus:outline-none focus:border-[#2C4A3E]"
+                  className="w-full border border-stone-200 px-3 py-2 text-sm text-stone-700 bg-transparent focus:outline-none focus:border-brand"
                 >
                   <option value="">Odaberite...</option>
                   <option value="individualno">Individualno savjetovanje</option>
@@ -127,14 +126,14 @@ export function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={5}
-                  className="w-full border-stone-200 focus:border-[#2C4A3E] rounded-none bg-transparent resize-none"
+                  className="w-full border-stone-200 focus:border-brand rounded-none bg-transparent resize-none"
                   placeholder="Ukratko mi opišite što vas je dovelo ovdje..."
                 />
               </div>
 
               <Button
                 type="submit"
-                className="w-full bg-[#2C4A3E] text-white hover:bg-[#233d33] rounded-none py-6 tracking-wide text-sm"
+                className="w-full bg-brand text-white hover:bg-brand-dark rounded-lg py-6 tracking-wide text-sm"
               >
                 Pošaljite poruku
               </Button>
@@ -157,7 +156,7 @@ export function Contact() {
                 <p className="text-xs text-stone-400 mb-1">E-mail</p>
                 <a
                   href="mailto:info@introspekta.hr"
-                  className="text-stone-800 hover:text-[#2C4A3E] transition-colors"
+                  className="text-stone-800 hover:text-brand transition-colors"
                 >
                   info@introspekta.hr
                 </a>
@@ -188,8 +187,8 @@ export function Contact() {
             </div>
           </div>
 
-          <div className="bg-stone-50 p-6 border-l-2 border-[#2C4A3E]">
-            <p className="text-xs text-[#2C4A3E] tracking-wide mb-2">Krizna podrška</p>
+          <div className="bg-stone-50 p-6 border-l-2 border-brand">
+            <p className="text-xs text-brand tracking-wide mb-2">Krizna podrška</p>
             <p className="text-sm text-stone-500 leading-relaxed">
               U slučaju hitne krize mentalnog zdravlja, nazovite besplatnu liniju{" "}
               <strong className="text-stone-700">0800 225 888</strong> ili se uputite

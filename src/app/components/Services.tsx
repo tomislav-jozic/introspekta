@@ -44,7 +44,7 @@ export function Services() {
     <div className="max-w-5xl mx-auto px-6 py-24">
       {/* Header */}
       <div className="max-w-2xl mb-20">
-        <p className="text-xs tracking-[0.2em] text-[#2C4A3E] uppercase mb-4">Usluge</p>
+        <p className="text-xs tracking-[0.2em] text-brand uppercase mb-4">Usluge</p>
         <h1 className="text-5xl tracking-tight text-stone-900 mb-6">
           Što nudim.
         </h1>
@@ -66,7 +66,7 @@ export function Services() {
             <div className="space-y-3">
               {service.details.map((detail) => (
                 <div key={detail} className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#2C4A3E] mt-1.5 shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand mt-1.5 shrink-0" />
                   <span className="text-sm text-stone-600">{detail}</span>
                 </div>
               ))}
@@ -92,7 +92,7 @@ export function Services() {
           ].map((area) => (
             <div
               key={area}
-              className="border border-stone-200 px-4 py-3 text-sm text-stone-600 hover:border-[#2C4A3E]/40 hover:text-stone-900 transition-colors"
+              className="border border-stone-200 px-4 py-3 text-sm text-stone-600"
             >
               {area}
             </div>
@@ -115,13 +115,13 @@ export function Services() {
           <div className="flex gap-4">
             <Link
               to="/kontakt"
-              className="inline-block px-6 py-3 bg-[#2C4A3E] text-white text-sm tracking-wide hover:bg-[#233d33] transition-colors"
+              className="inline-block px-6 py-3 bg-brand text-white text-sm tracking-wide hover:bg-brand-dark transition-colors rounded-lg"
             >
               Rezervirajte termin
             </Link>
             <Link
               to="/pristup"
-              className="inline-block px-6 py-3 border border-stone-300 text-stone-700 text-sm tracking-wide hover:border-stone-500 transition-colors"
+              className="inline-block px-6 py-3 border border-stone-300 text-stone-700 text-sm tracking-wide hover:border-stone-500 transition-colors rounded-lg"
             >
               O pristupu
             </Link>
