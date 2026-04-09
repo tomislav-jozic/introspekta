@@ -89,9 +89,16 @@ export function About() {
             <div className="md:col-span-3">
               <p className="text-stone-900">Kognitivno-bihevioralna terapija (KBT)</p>
               <p className="text-sm text-stone-500 mt-1">
-                Trenutno u fazi supervizije. Uz KBT, završila sam edukacije iz MBCT, ACT, CFT
-                te ekspresivne art terapije.
+                Trenutno u fazi supervizije. Uz KBT, završila sam dodatne edukacije iz
+                trećeg vala KBT-a (MBCT, ACT, CFT).
               </p>
+            </div>
+          </div>
+          <div className="py-8 grid md:grid-cols-4 gap-4">
+            <p className="text-sm text-stone-400">Psihoterapija</p>
+            <div className="md:col-span-3">
+              <p className="text-stone-900">Ekspresivna art terapija</p>
+              <p className="text-sm text-stone-500 mt-1">Praktičar metode</p>
             </div>
           </div>
         </div>

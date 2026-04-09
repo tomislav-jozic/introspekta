@@ -9,9 +9,8 @@ const services = [
     description:
       "Individualni terapijski susreti pružaju osobni, povjerljivi prostor za istraživanje misli, emocija i ponašajnih obrazaca. Svaki proces oblikujemo zajedno — prilagođen vašim potrebama, tempu i ciljevima.",
     details: [
-      "Sesije trajanja 50 minuta",
+      "Sesije trajanja 60 minuta",
       "Tjedno ili dvotjedno",
-      "Rad na anksioznosti, depresiji, traumi, samopoštovanju i osobnom rastu",
       "Prilagođen terapijski plan",
     ],
   },
@@ -19,7 +18,7 @@ const services = [
     number: "02",
     title: "Online savjetovanje",
     description:
-      "Terapija dostupna iz udobnosti vašeg doma — ista razina pažnje, prisutnosti i profesionalnosti. Online savjetovanje idealno je za one koji preferiraju fleksibilnost ili nemaju mogućnost dolaska u prostorije.",
+      "Terapija dostupna iz udobnosti vašeg doma — ista razina pažnje, prisutnosti i profesionalnosti. Online savjetovanje idealno je za one koji preferiraju fleksibilnost ili nemaju mogućnost dolaska uživo.",
     details: [
       "Video sesije putem sigurne platforme",
       "Isti format i trajanje kao i u osobnom susretu",
@@ -33,7 +32,6 @@ const services = [
     description:
       "Grupni programi dizajnirani za razvoj emocionalnih vještina, samosvijesti i psihološke otpornosti. Radionice kombiniraju teorijske uvide s praktičnim vježbama u sigurnom, podržavajućem skupnom okruženju.",
     details: [
-      "Teme: mindfulness, emocionalna regulacija, self-compassion",
       "Kombinacija teorije i iskustvenih vježbi",
       "Grupni format koji potiče refleksiju i povezivanje",
       "Za organizacije, škole i otvorene grupe",
@@ -89,7 +87,7 @@ export function Services() {
           {[
             "Anksioznost i stres",
             "Depresija",
-            "Trauma i PTSP",
+            "Trauma",
             "Kronični sram",
             "Samopoštovanje i identitet",
             "Emocionalna regulacija",

@@ -12,16 +12,36 @@ export function Contact() {
     phone: "",
     topic: "",
     message: "",
+    website: "", // honeypot
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setFormData({ name: "", email: "", phone: "", topic: "", message: "" });
-      setSubmitted(false);
-    }, 4000);
+    if (loading) return;
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch("/contact.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const json = await res.json().catch(() => ({ ok: false }));
+      if (!res.ok || !json.ok) {
+        throw new Error(json.error || "send_failed");
+      }
+      setSubmitted(true);
+      setFormData({ name: "", email: "", phone: "", topic: "", message: "", website: "" });
+    } catch {
+      setError(
+        "Slanje poruke nije uspjelo. Molim pokušajte ponovno ili me kontaktirajte direktno na introspekta.lj@gmail.com."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (
@@ -34,7 +54,7 @@ export function Contact() {
     <div className="max-w-5xl mx-auto px-6 py-24">
       <Seo
         title="Kontakt"
-        description="Rezervirajte termin za psihoterapiju u Zagrebu ili online. Kontaktirajte Introspektu putem obrasca ili e-maila info@introspekta.hr."
+        description="Rezervirajte termin za psihoterapiju u Zagrebu ili online. Kontaktirajte Introspektu putem obrasca ili e-maila introspekta.lj@gmail.com."
         path="/kontakt"
       />
       {/* Header */}
@@ -137,12 +157,34 @@ export function Contact() {
                 />
               </div>
 
+              {/* Honeypot — hidden from real users, bots will fill it */}
+              <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}>
+                <label>
+                  Website
+                  <input
+                    type="text"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={formData.website}
+                    onChange={handleChange}
+                  />
+                </label>
+              </div>
+
               <Button
                 type="submit"
-                className="w-full bg-brand text-white hover:bg-brand-dark rounded-lg py-6 tracking-wide text-sm"
+                disabled={loading}
+                className="w-full bg-brand text-white hover:bg-brand-dark rounded-lg py-6 tracking-wide text-sm disabled:opacity-60"
               >
-                Pošaljite poruku
+                {loading ? "Slanje..." : "Pošaljite poruku"}
               </Button>
+
+              {error && (
+                <p className="text-sm text-red-600" role="alert">
+                  {error}
+                </p>
+              )}
 
               <p className="text-xs text-stone-400">
                 * Obavezna polja. Vaši podaci se čuvaju strogo povjerljivo.
@@ -161,10 +203,10 @@ export function Contact() {
               <div>
                 <p className="text-xs text-stone-400 mb-1">E-mail</p>
                 <a
-                  href="mailto:info@introspekta.hr"
+                  href="mailto:introspekta.lj@gmail.com"
                   className="text-stone-800 hover:text-brand transition-colors"
                 >
-                  info@introspekta.hr
+                  introspekta.lj@gmail.com
                 </a>
               </div>
               <div>
@@ -186,20 +228,7 @@ export function Contact() {
                 Nakon što pošaljete poruku, javit ću vam se u roku od 24–48 sati kako bismo
                 dogovorili slobodan termin.
               </p>
-              <p>
-                Nismo hitna ili krizna služba. Ako ste u krizi, molim kontaktirajte Centar za
-                krizna stanja ili Liniju za podršku 0800 225 888 (besplatno).
-              </p>
             </div>
-          </div>
-
-          <div className="bg-stone-50 p-6 border-l-2 border-brand">
-            <p className="text-xs text-brand tracking-wide mb-2">Krizna podrška</p>
-            <p className="text-sm text-stone-500 leading-relaxed">
-              U slučaju hitne krize mentalnog zdravlja, nazovite besplatnu liniju{" "}
-              <strong className="text-stone-700">0800 225 888</strong> ili se uputite
-              u najbliži hitni prijam.
-            </p>
           </div>
         </div>
       </div>

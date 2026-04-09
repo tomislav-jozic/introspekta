@@ -124,15 +124,14 @@ export function Approach() {
               <div>
                 <p className="text-stone-900 mb-1">Kontinuirani rad</p>
                 <p>
-                  Sesije obično traju 50 minuta i odvijaju se tjedno ili dvotjedno. Zajedno
+                  Sesije obično traju 60 minuta i odvijaju se tjedno ili dvotjedno. Zajedno
                   razvijamo terapijski plan koji prilagođavamo prema potrebi.
                 </p>
               </div>
               <div>
                 <p className="text-stone-900 mb-1">Povjerljivost</p>
                 <p>
-                  Sve što se razgovara na seansama je povjerljivo, uz rijetke zakonske
-                  iznimke koje ću objasniti na prvom susretu.
+                  Sve što se razgovara na seansama je povjerljivo.
                 </p>
               </div>
             </div>
@@ -142,8 +141,8 @@ export function Approach() {
               Napravite prvi korak
             </p>
             <p className="text-stone-700 leading-relaxed mb-8">
-              Početak terapije može izgledati zastrašujuće. Slobodno me kontaktirajte s
-              pitanjima — bez obveza.
+              Pomisao na početak terapije može djelovati pomalo zastrašujuće. Slobodno me
+              kontaktirajte s pitanjima — bez obveza.
             </p>
             <CtaButton to="/kontakt">
               Kontaktirajte me

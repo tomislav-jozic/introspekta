@@ -13,7 +13,7 @@ const services = [
   {
     title: "Online savjetovanje",
     description:
-      "Terapija dostupna iz udobnosti vašeg doma — ista razina pažnje i prisutnosti, fleksibilno i praktično.",
+      "Dostupno iz udobnosti vašeg doma.",
     href: "/usluge",
   },
   {
@@ -77,7 +77,11 @@ export function Home() {
             </div>
             <div className="flex items-start gap-3">
               <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2 shrink-0" />
-              <span className="text-sm text-stone-500">Mindfulness (MBCT, ACT)</span>
+              <span className="text-sm text-stone-500">Mindfulness (MBCT)</span>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2 shrink-0" />
+              <span className="text-sm text-stone-500">Terapija prihvaćanjem i posvećenošću (ACT)</span>
             </div>
             <div className="flex items-start gap-3">
               <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2 shrink-0" />
