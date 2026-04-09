@@ -13,7 +13,7 @@ const services = [
   {
     title: "Online savjetovanje",
     description:
-      "Dostupno iz udobnosti vašeg doma.",
+      "Dostupno iz udobnosti vašeg doma — ista razina pažnje i prisutnosti, fleksibilno i praktično.",
     href: "/usluge",
   },
   {
