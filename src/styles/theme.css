@@ -126,11 +126,11 @@
 
 @keyframes heading-reveal {
   from {
-    clip-path: inset(100% 0 0 0);
+    transform: translateY(20px);
     opacity: 0;
   }
   to {
-    clip-path: inset(0 0 0 0);
+    transform: translateY(0);
     opacity: 1;
   }
 }
@@ -226,4 +226,3 @@ main h1.revealed,
 main h2.revealed {
   animation: heading-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
-

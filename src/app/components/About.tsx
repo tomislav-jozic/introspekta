@@ -69,14 +69,14 @@ export function About() {
         <h2 className="text-2xl tracking-tight text-stone-900 mb-8">Obrazovanje</h2>
         <div className="space-y-0 divide-y divide-stone-100">
           <div className="py-8 grid md:grid-cols-4 gap-4">
-            <p className="text-sm text-stone-400">Preddiplomski studij</p>
+            <p className="text-sm text-stone-500">Preddiplomski studij</p>
             <div className="md:col-span-3">
               <p className="text-stone-900">Psihologija</p>
               <p className="text-sm text-stone-500 mt-1">Filozofski fakultet, Maribor</p>
             </div>
           </div>
           <div className="py-8 grid md:grid-cols-4 gap-4">
-            <p className="text-sm text-stone-400">Diplomski studij</p>
+            <p className="text-sm text-stone-500">Diplomski studij</p>
             <div className="md:col-span-3">
               <p className="text-stone-900">Psihologija</p>
               <p className="text-sm text-stone-500 mt-1">
@@ -85,7 +85,7 @@ export function About() {
             </div>
           </div>
           <div className="py-8 grid md:grid-cols-4 gap-4">
-            <p className="text-sm text-stone-400">Psihoterapija</p>
+            <p className="text-sm text-stone-500">Psihoterapija</p>
             <div className="md:col-span-3">
               <p className="text-stone-900">Kognitivno-bihevioralna terapija (KBT)</p>
               <p className="text-sm text-stone-500 mt-1">
@@ -95,7 +95,7 @@ export function About() {
             </div>
           </div>
           <div className="py-8 grid md:grid-cols-4 gap-4">
-            <p className="text-sm text-stone-400">Psihoterapija</p>
+            <p className="text-sm text-stone-500">Psihoterapija</p>
             <div className="md:col-span-3">
               <p className="text-stone-900">Ekspresivna art terapija</p>
               <p className="text-sm text-stone-500 mt-1">Praktičar metode</p>
@@ -109,7 +109,7 @@ export function About() {
         <h2 className="text-2xl tracking-tight text-stone-900 mb-8">Radno iskustvo</h2>
         <div className="space-y-0 divide-y divide-stone-100">
           <div className="py-8 grid md:grid-cols-4 gap-4">
-            <p className="text-sm text-stone-400">2019 — 2024</p>
+            <p className="text-sm text-stone-500">2019 — 2024</p>
             <div className="md:col-span-3">
               <p className="text-stone-900">
                 Udruga za podršku žrtvama i svjedocima, Varaždin
@@ -121,7 +121,7 @@ export function About() {
             </div>
           </div>
           <div className="py-8 grid md:grid-cols-4 gap-4">
-            <p className="text-sm text-stone-400">2019 — 2025</p>
+            <p className="text-sm text-stone-500">2019 — 2025</p>
             <div className="md:col-span-3">
               <p className="text-stone-900">Hrvatski zavod za javno zdravstvo</p>
               <p className="text-sm text-stone-500 mt-2 leading-relaxed">
@@ -132,7 +132,7 @@ export function About() {
             </div>
           </div>
           <div className="py-8 grid md:grid-cols-4 gap-4">
-            <p className="text-sm text-stone-400">Od studija</p>
+            <p className="text-sm text-stone-500">Od studija</p>
             <div className="md:col-span-3">
               <p className="text-stone-900">Osposobljavanja i volontiranja</p>
               <p className="text-sm text-stone-500 mt-2 leading-relaxed">
@@ -151,7 +151,7 @@ export function About() {
         <div className="space-y-0 divide-y divide-stone-100">
           {certifications.map((cert) => (
             <div key={cert.title} className="py-5 grid md:grid-cols-4 gap-4 items-start">
-              <p className="text-sm text-stone-400 tabular-nums">{cert.year}</p>
+              <p className="text-sm text-stone-500 tabular-nums">{cert.year}</p>
               <div className="md:col-span-3">
                 <p className="text-stone-800">{cert.title}</p>
                 {cert.subtitle && (

@@ -28,7 +28,7 @@ export function BlogPost() {
       />
 
       {/* Back link */}
-      <Link to="/blog" className="text-sm text-stone-400 hover:text-stone-700 transition-colors mb-10 inline-block">
+      <Link to="/blog" className="text-sm text-stone-500 hover:text-stone-900 transition-colors mb-10 inline-block">
         ← Svi tekstovi
       </Link>
 

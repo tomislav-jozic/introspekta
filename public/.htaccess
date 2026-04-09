@@ -1,9 +1,113 @@
-RewriteEngine On
-RewriteBase /
+# =====================================================================
+# introspekta.com.hr — Apache config
+# Lives in public_html/.htaccess (copied from public/ at build time)
+# =====================================================================
 
-# If the request is for an existing file or directory, serve it directly
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+# ---------------------------------------------------------------------
+# 1. SPA fallback — serve index.html for any non-file, non-dir request
+# ---------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
 
-# Otherwise, redirect everything to index.html
-RewriteRule ^ index.html [QSA,L]
+    # Force HTTPS
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Don't rewrite real files (contact.php, assets, fonts, images, etc.)
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Everything else → index.html (React Router handles it)
+    RewriteRule . /index.html [L]
+</IfModule>
+
+# ---------------------------------------------------------------------
+# 2. Compression — gzip text-based responses
+# ---------------------------------------------------------------------
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/atom+xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# Brotli if the server has it (cPanel sometimes does)
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/html text/css text/plain text/xml
+    AddOutputFilterByType BROTLI_COMPRESS application/javascript application/json
+    AddOutputFilterByType BROTLI_COMPRESS image/svg+xml
+</IfModule>
+
+# ---------------------------------------------------------------------
+# 3. Cache headers — Vite hashes filenames, so JS/CSS/fonts can be
+#    cached forever. HTML must NOT be cached or visitors get stale apps.
+# ---------------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # Hashed build assets — immutable for 1 year
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType text/javascript        "access plus 1 year"
+    ExpiresByType text/css               "access plus 1 year"
+    ExpiresByType font/woff2             "access plus 1 year"
+    ExpiresByType font/woff              "access plus 1 year"
+    ExpiresByType image/svg+xml          "access plus 1 year"
+    ExpiresByType image/png              "access plus 1 year"
+    ExpiresByType image/jpeg             "access plus 1 year"
+    ExpiresByType image/webp             "access plus 1 year"
+    ExpiresByType image/avif             "access plus 1 year"
+    ExpiresByType image/x-icon           "access plus 1 year"
+
+    # HTML — never cache (always serve the latest entrypoint)
+    ExpiresByType text/html              "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+    # Mark hashed assets as immutable (skips revalidation entirely)
+    <FilesMatch "\.(js|css|woff2?|ttf|otf|eot|svg|png|jpg|jpeg|webp|avif|ico)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    # HTML must always be revalidated
+    <FilesMatch "\.html$">
+        Header set Cache-Control "no-cache, must-revalidate"
+    </FilesMatch>
+
+    # ----- Security headers -----
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    # HSTS — enable after confirming HTTPS works on every subdomain you use
+    # Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# ---------------------------------------------------------------------
+# 4. MIME types — make sure woff2 is served correctly
+# ---------------------------------------------------------------------
+<IfModule mod_mime.c>
+    AddType font/woff2 .woff2
+    AddType application/javascript .js
+</IfModule>
+
+# ---------------------------------------------------------------------
+# 5. Lock down sensitive files
+# ---------------------------------------------------------------------
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Belt-and-suspenders — even though contact.config.php lives above
+# public_html, deny it here too in case anyone ever drops a copy in.
+<Files "contact.config.php">
+    Require all denied
+</Files>

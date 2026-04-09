@@ -40,7 +40,7 @@ export function Header() {
                 className={`text-sm tracking-wide transition-colors ${
                   isActive(link.to)
                     ? "text-brand"
-                    : "text-stone-400 hover:text-stone-900"
+                    : "text-stone-500 hover:text-stone-900"
                 }`}
               >
                 {link.label}

@@ -37,7 +37,7 @@ export function Contact() {
       setFormData({ name: "", email: "", phone: "", topic: "", message: "", website: "" });
     } catch {
       setError(
-        "Slanje poruke nije uspjelo. Molim pokušajte ponovno ili me kontaktirajte direktno na introspekta.lj@gmail.com."
+        "Slanje poruke nije uspjelo. Molim pokušajte ponovno ili me kontaktirajte direktno na kontakt@introspekta.com.hr."
       );
     } finally {
       setLoading(false);
@@ -54,7 +54,7 @@ export function Contact() {
     <div className="max-w-5xl mx-auto px-6 py-24">
       <Seo
         title="Kontakt"
-        description="Rezervirajte termin za psihoterapiju u Zagrebu ili online. Kontaktirajte Introspektu putem obrasca ili e-maila introspekta.lj@gmail.com."
+        description="Rezervirajte termin za psihoterapiju u Zagrebu ili online. Kontaktirajte Introspektu putem obrasca ili e-maila kontakt@introspekta.com.hr."
         path="/kontakt"
       />
       {/* Header */}
@@ -186,7 +186,7 @@ export function Contact() {
                 </p>
               )}
 
-              <p className="text-xs text-stone-400">
+              <p className="text-xs text-stone-500">
                 * Obavezna polja. Vaši podaci se čuvaju strogo povjerljivo.
               </p>
             </form>
@@ -196,23 +196,23 @@ export function Contact() {
         {/* Info */}
         <div className="space-y-12">
           <div>
-            <p className="text-xs tracking-[0.2em] text-stone-400 uppercase mb-6">
+            <p className="text-xs tracking-[0.2em] text-stone-500 uppercase mb-6">
               Kontakt informacije
             </p>
             <div className="space-y-6">
               <div>
-                <p className="text-xs text-stone-400 mb-1">E-mail</p>
+                <p className="text-xs text-stone-500 mb-1">E-mail</p>
                 <a
-                  href="mailto:introspekta.lj@gmail.com"
+                  href="mailto:kontakt@introspekta.com.hr"
                   className="text-stone-800 hover:text-brand transition-colors"
                 >
-                  introspekta.lj@gmail.com
+                  kontakt@introspekta.com.hr
                 </a>
               </div>
               <div>
-                <p className="text-xs text-stone-400 mb-1">Lokacija</p>
+                <p className="text-xs text-stone-500 mb-1">Lokacija</p>
                 <p className="text-stone-700">Zagreb</p>
-                <p className="text-xs text-stone-400 mt-0.5">
+                <p className="text-xs text-stone-500 mt-0.5">
                   Sesije dostupne i online
                 </p>
               </div>
@@ -220,7 +220,7 @@ export function Contact() {
           </div>
 
           <div className="border-t border-stone-100 pt-8">
-            <p className="text-xs tracking-[0.2em] text-stone-400 uppercase mb-5">
+            <p className="text-xs tracking-[0.2em] text-stone-500 uppercase mb-5">
               Što mogu očekivati
             </p>
             <div className="space-y-4 text-sm text-stone-500 leading-relaxed">

@@ -64,7 +64,7 @@ export function Services() {
         {services.map((service) => (
           <div key={service.number} className="py-14 grid md:grid-cols-2 gap-12 items-start">
             <div>
-              <p className="text-xs text-stone-400 tracking-widest mb-4">{service.number}</p>
+              <p className="text-xs text-stone-500 tracking-widest mb-4">{service.number}</p>
               <h2 className="text-2xl tracking-tight text-stone-900 mb-4">{service.title}</h2>
               <p className="text-stone-500 leading-relaxed text-sm">{service.description}</p>
             </div>

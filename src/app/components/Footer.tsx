@@ -8,9 +8,9 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div>
             <p className="text-white tracking-widest text-sm mb-1">introspekta</p>
-            <p className="text-xs text-white/50">Psihoterapija · Zagreb</p>
+            <p className="text-xs text-white/75">Psihoterapija · Zagreb</p>
           </div>
-          <div className="flex flex-col md:flex-row gap-6 text-xs text-white/50">
+          <div className="flex flex-col md:flex-row gap-6 text-xs text-white/75">
             {navLinks.slice(1).map((link) => (
               <Link key={link.to} to={link.to} className="hover:text-white transition-colors">
                 {link.label}
@@ -18,7 +18,7 @@ export function Footer() {
             ))}
           </div>
         </div>
-        <div className="mt-8 pt-6 border-t border-white/15 text-xs text-white/40">
+        <div className="mt-8 pt-6 border-t border-white/15 text-xs text-white/70">
           © {new Date().getFullYear()} Introspekta. Sva prava pridržana.
         </div>
       </div>

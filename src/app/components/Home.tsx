@@ -95,7 +95,7 @@ export function Home() {
       <section className="py-24 border-t border-stone-100">
         <div className="flex justify-between items-end mb-12">
           <h2 className="text-3xl tracking-tight text-stone-900">Usluge</h2>
-          <Link to="/usluge" className="text-sm text-stone-400 hover:text-stone-700 transition-colors">
+          <Link to="/usluge" className="text-sm text-stone-500 hover:text-stone-900 transition-colors">
             Sve usluge →
           </Link>
         </div>
@@ -130,7 +130,7 @@ export function Home() {
       <section className="py-24 border-t border-stone-100">
         <div className="flex justify-between items-end mb-12">
           <h2 className="text-3xl tracking-tight text-stone-900">Blog</h2>
-          <Link to="/blog" className="text-sm text-stone-400 hover:text-stone-700 transition-colors">
+          <Link to="/blog" className="text-sm text-stone-500 hover:text-stone-900 transition-colors">
             Svi tekstovi →
           </Link>
         </div>

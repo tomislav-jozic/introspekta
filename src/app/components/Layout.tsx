@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { Outlet, useLocation } from "react-router";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
@@ -33,7 +33,9 @@ export function Layout() {
 
       <main className="pt-24">
         <div key={location.pathname} className="animate-page-enter">
-          <Outlet />
+          <Suspense fallback={<div className="min-h-[60vh]" />}>
+            <Outlet />
+          </Suspense>
         </div>
       </main>
 
